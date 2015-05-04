@@ -10,8 +10,12 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         TestDummy::times(50)->create('App\User');
-        TestDummy::create('App\User', ['email' => 'user@fake.com']);
-        TestDummy::create('App\User', ['email' => 'admin@fake.com']);
+
+        if (!\App\User::where('email', 'user@fake.com')->get()) {
+
+            TestDummy::create('App\User', ['email' => 'user@fake.com']);
+            TestDummy::create('App\User', ['email' => 'admin@fake.com']);
+        }
     }
 
 }

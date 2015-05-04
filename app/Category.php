@@ -9,4 +9,13 @@ class Category extends Model {
 
 	protected $dates = ['deleted_at'];
 
+	protected $guarded = ['id'];
+
+	protected $fillable = ['name'];
+
+	public function products()
+	{
+		return $this->hasMany('App\Product');
+	}
+
 }

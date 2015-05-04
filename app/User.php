@@ -22,6 +22,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $table = 'users';
 
 
+    protected $guarded = ['id'];
+
+
     protected $dates = ['trial_ends_at', 'subscription_ends_at', 'deleted_at'];
 
     /**
@@ -37,5 +40,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function orders()
+    {
+        return $this->hasMany('App\Orders');
+    }
 
 }

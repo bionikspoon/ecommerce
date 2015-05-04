@@ -4,7 +4,7 @@
 	@include('partials.header')
 	<title>@yield('title', 'E-commerce')</title>
 </head>
-<body>
+<body ng-controller="main">
 	@include('partials.nav')
 	@yield('content')
 
